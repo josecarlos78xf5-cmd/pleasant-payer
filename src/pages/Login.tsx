@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { Receipt } from 'lucide-react';
+import { CircleDollarSign } from 'lucide-react';
 import loginBg from '@/assets/login-bg.png';
 
 export default function Login() {
