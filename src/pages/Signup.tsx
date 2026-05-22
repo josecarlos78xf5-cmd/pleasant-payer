@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Receipt } from 'lucide-react';
+import { CircleDollarSign, CheckCircle2 } from 'lucide-react';
 
 const DEPARTMENTS = ['Engineering', 'Marketing', 'Sales', 'Finance', 'HR', 'Operations', 'General'];
 
@@ -33,70 +29,89 @@ export default function Signup() {
     }
   };
 
-  if (success) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background px-4">
-        <Card className="w-full max-w-md">
-          <CardHeader className="text-center">
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-success">
-              <Receipt className="h-6 w-6 text-success-foreground" />
-            </div>
-            <CardTitle className="text-2xl">Check your email</CardTitle>
-            <CardDescription>We've sent a confirmation link to {email}. Please verify your email to continue.</CardDescription>
-          </CardHeader>
-          <CardFooter className="justify-center">
-            <Link to="/login" className="text-primary hover:underline text-sm">Back to sign in</Link>
-          </CardFooter>
-        </Card>
-      </div>
-    );
-  }
+  const inputClass =
+    'block w-full rounded-md border border-border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 shadow-[0_1px_2px_rgba(15,23,42,0.04)] outline-none transition-all focus:border-ring focus:ring-2 focus:ring-ring/10';
+  const labelClass = 'block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5';
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
-            <Receipt className="h-6 w-6 text-primary-foreground" />
-          </div>
-          <CardTitle className="text-2xl">Create Account</CardTitle>
-          <CardDescription>Join ExpenseDesk to manage your expenses</CardDescription>
-        </CardHeader>
-        <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
-              <Input id="fullName" placeholder="John Doe" value={fullName} onChange={e => setFullName(e.target.value)} required />
+    <div className="flex min-h-screen w-full bg-background font-sans">
+      <div className="flex w-full flex-col justify-center px-8 sm:px-12 lg:w-[540px] lg:px-20 bg-card border-r border-border/60">
+        <div className="mx-auto w-full max-w-sm">
+          <div className="mb-10">
+            <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${success ? 'bg-success' : 'bg-primary'} text-primary-foreground shadow-sm`}>
+              {success ? <CheckCircle2 className="h-5 w-5" /> : <CircleDollarSign className="h-5 w-5" strokeWidth={2.25} />}
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="you@company.com" value={email} onChange={e => setEmail(e.target.value)} required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="Min. 6 characters" value={password} onChange={e => setPassword(e.target.value)} required minLength={6} />
-            </div>
-            <div className="space-y-2">
-              <Label>Department</Label>
-              <Select value={department} onValueChange={setDepartment}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  {DEPARTMENTS.map(d => <SelectItem key={d} value={d}>{d}</SelectItem>)}
-                </SelectContent>
-              </Select>
-            </div>
-          </CardContent>
-          <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? 'Creating account...' : 'Create Account'}
-            </Button>
-            <p className="text-sm text-muted-foreground">
-              Already have an account?{' '}
-              <Link to="/login" className="text-primary hover:underline">Sign in</Link>
+            <h1 className="mt-6 text-2xl font-semibold tracking-tight text-foreground font-display">
+              {success ? 'Check your email' : 'Create your account'}
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {success
+                ? `We've sent a confirmation link to ${email}. Verify it to continue.`
+                : 'Join ExpenseDesk to manage your team expenses.'}
             </p>
-          </CardFooter>
-        </form>
-      </Card>
+          </div>
+
+          {success ? (
+            <Link to="/login" className="text-sm font-medium text-foreground hover:underline">
+              ← Back to sign in
+            </Link>
+          ) : (
+            <>
+              <form className="space-y-5" onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="fullName" className={labelClass}>Full name</label>
+                  <input id="fullName" required value={fullName} onChange={e => setFullName(e.target.value)} placeholder="Jane Doe" className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="email" className={labelClass}>Email</label>
+                  <input id="email" type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="you@company.com" className={inputClass} />
+                </div>
+                <div>
+                  <label htmlFor="password" className={labelClass}>Password</label>
+                  <input id="password" type="password" required minLength={6} value={password} onChange={e => setPassword(e.target.value)} placeholder="Min. 6 characters" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Department</label>
+                  <Select value={department} onValueChange={setDepartment}>
+                    <SelectTrigger className="h-[42px] rounded-md border-border bg-card text-sm"><SelectValue /></SelectTrigger>
+                    <SelectContent>
+                      {DEPARTMENTS.map(d => <SelectItem key={d} value={d}>{d}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="flex w-full items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 disabled:opacity-60"
+                >
+                  {isLoading ? 'Creating account…' : 'Create account'}
+                </button>
+              </form>
+              <p className="mt-8 text-center text-sm text-muted-foreground">
+                Already have an account?{' '}
+                <Link to="/login" className="font-medium text-foreground hover:underline">Sign in</Link>
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="relative hidden flex-1 flex-col justify-end p-16 lg:flex bg-[hsl(218_23%_23%)] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '24px 24px' }}
+          aria-hidden="true"
+        />
+        <div className="relative max-w-lg">
+          <div className="mb-8 h-px w-24 bg-gradient-to-r from-white/40 to-transparent" />
+          <h2 className="text-4xl font-semibold leading-tight text-white font-display tracking-tight">
+            Built for finance teams that ship.
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-white/70 font-light">
+            From draft to reimbursement in a single, auditable workflow. Set up in minutes.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

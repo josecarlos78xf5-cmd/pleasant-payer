@@ -1,6 +1,7 @@
 import {
   LayoutDashboard, Receipt, PlusCircle, Users, CheckSquare,
   Building2, BarChart3, LogOut, ChevronDown, PieChart, MessageSquare,
+  CircleDollarSign,
 } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { NavLink } from '@/components/NavLink';
@@ -53,10 +54,10 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" className="pointer-events-none">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary">
-                <Receipt className="h-4 w-4 text-primary-foreground" />
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary">
+                <CircleDollarSign className="h-4 w-4 text-primary-foreground" strokeWidth={2.25} />
               </div>
-              {!collapsed && <span className="font-bold text-lg">ExpenseDesk</span>}
+              {!collapsed && <span className="font-display font-semibold text-base tracking-tight">ExpenseDesk</span>}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
