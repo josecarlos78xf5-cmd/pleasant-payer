@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { Receipt } from 'lucide-react';
+import { CircleDollarSign } from 'lucide-react';
 import loginBg from '@/assets/login-bg.png';
 
 export default function Login() {
@@ -57,11 +57,11 @@ export default function Login() {
   return (
     <div className="flex min-h-screen">
       {/* Left side - Login form */}
-      <div className="flex w-full lg:w-1/2 items-center justify-center bg-background px-4 sm:px-8">
+      <div className="flex w-full lg:w-1/2 items-center justify-center bg-background px-4 sm:px-8 font-sans">
         <Card className="w-full max-w-md border-0 shadow-none bg-transparent">
-          <CardHeader className="text-center">
+          <CardHeader>
             <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
-              <Receipt className="h-6 w-6 text-primary-foreground" />
+              <CircleDollarSign className="h-6 w-6 text-primary-foreground" />
             </div>
             <CardTitle className="text-2xl sm:text-3xl">ExpenseDesk</CardTitle>
             <CardDescription>Sign in to manage your expenses</CardDescription>
@@ -122,7 +122,7 @@ export default function Login() {
           alt="Business professionals analyzing financial data on a rooftop with city skyline"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent bg-slate-800 border-0 border-amber-50 text-slate-50" />
         <div className="absolute bottom-12 left-8 right-8 text-white">
           <h2 className="text-3xl font-bold tracking-tight">Streamline your expense management</h2>
           <p className="mt-2 text-lg text-white/80">Submit, track, and approve expenses — all in one place.</p>
