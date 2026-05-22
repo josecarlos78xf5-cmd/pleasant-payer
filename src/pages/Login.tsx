@@ -122,7 +122,7 @@ export default function Login() {
           alt="Business professionals analyzing financial data on a rooftop with city skyline"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent bg-slate-800 border-0 border-amber-50 text-slate-50" />
         <div className="absolute bottom-12 left-8 right-8 text-white">
           <h2 className="text-3xl font-bold tracking-tight">Streamline your expense management</h2>
           <p className="mt-2 text-lg text-white/80">Submit, track, and approve expenses — all in one place.</p>
