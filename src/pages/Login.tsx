@@ -57,11 +57,11 @@ export default function Login() {
   return (
     <div className="flex min-h-screen">
       {/* Left side - Login form */}
-      <div className="flex w-full lg:w-1/2 items-center justify-center bg-background px-4 sm:px-8">
+      <div className="flex w-full lg:w-1/2 items-center justify-center bg-background px-4 sm:px-8 font-sans">
         <Card className="w-full max-w-md border-0 shadow-none bg-transparent">
-          <CardHeader className="text-center">
+          <CardHeader>
             <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
-              <Receipt className="h-6 w-6 text-primary-foreground" />
+              <CircleDollarSign className="h-6 w-6 text-primary-foreground" />
             </div>
             <CardTitle className="text-2xl sm:text-3xl">ExpenseDesk</CardTitle>
             <CardDescription>Sign in to manage your expenses</CardDescription>
