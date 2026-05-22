@@ -146,11 +146,15 @@ export default function Login() {
 
       {/* Right: Visual Panel */}
       <div className="relative hidden flex-1 flex-col justify-end p-16 lg:flex bg-[hsl(218_23%_23%)] overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 0)', backgroundSize: '24px 24px' }}
-          aria-hidden="true"
+        <video
+          src={loginBg.url}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218_23%_15%)]/90 via-[hsl(218_23%_23%)]/50 to-transparent" aria-hidden="true" />
         <div className="relative max-w-lg">
           <div className="mb-8 h-px w-24 bg-gradient-to-r from-white/40 to-transparent" />
           <h2 className="text-4xl font-semibold leading-tight text-white font-display tracking-tight">
