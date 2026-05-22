@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { lovable } from '@/integrations/lovable';
 import { useToast } from '@/hooks/use-toast';
 import { CircleDollarSign } from 'lucide-react';
+import loginBg from '@/assets/login-bg.mp4.asset.json';
 
 export default function Login() {
   const [email, setEmail] = useState('');
