@@ -52,17 +52,17 @@ export default function Login() {
   return (
     <div className="flex min-h-screen w-full bg-background font-sans">
       {/* Left: Auth Form */}
-      <div className="flex w-full flex-col justify-center px-8 sm:px-12 lg:w-[540px] lg:px-20 bg-card border-r border-border/60">
+      <div className="flex w-full flex-col justify-center px-8 sm:px-12 lg:w-[540px] lg:px-20 bg-card border-r border-border/60 bg-gray-950">
         <div className="mx-auto w-full max-w-sm">
           <div className="mb-10">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm text-slate-50">
               <CircleDollarSign className="h-5 w-5" strokeWidth={2.25} />
             </div>
-            <h1 className="mt-6 text-2xl font-semibold tracking-tight text-foreground font-display">
-              ExpenseDesk
+            <h1 className="mt-6 text-2xl font-semibold tracking-tight text-foreground font-display text-slate-100">
+              PetixOps
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              Sign in to manage your workspace expenses
+              Bem vindo de volta
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function Login() {
               <div className="w-full border-t border-border/70" />
             </div>
             <div className="relative flex justify-center text-xs uppercase tracking-widest">
-              <span className="bg-card px-3 text-muted-foreground/80 font-medium">or continue with email</span>
+              <span className="bg-card px-3 text-muted-foreground/80 font-medium text-slate-800">or continue with email</span>
             </div>
           </div>
 
@@ -136,9 +136,9 @@ export default function Login() {
           </form>
 
           <p className="mt-8 text-center text-sm text-muted-foreground">
-            Don't have an account?{' '}
-            <Link to="/signup" className="font-medium text-foreground hover:underline">
-              Create one
+            Não tem uma conta?{' '}
+            <Link to="/signup" className="font-medium text-foreground hover:underline bg-gray-900 text-slate-200">
+              solicitar acesso
             </Link>
           </p>
         </div>
@@ -158,19 +158,19 @@ export default function Login() {
         <div className="relative max-w-lg">
           <div className="mb-8 h-px w-24 bg-gradient-to-r from-white/40 to-transparent" />
           <h2 className="text-4xl font-semibold leading-tight text-white font-display tracking-tight">
-            Streamline your expense management
+            Operações Petix, agora com as soluções que sua equipe merece.
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-white/70 font-light">
-            Submit, track, and approve expenses — all in one place. Built for teams that value speed and precision.
+          <p className="mt-6 text-lg leading-relaxed text-orange-50 font-bold">
+            Conversão de códigos, OCR de NF-e e histórico de consultas ,tudo em um só lugar, com segurança e desempenho.
           </p>
 
           <div className="mt-12 flex items-center gap-6">
             <div className="flex -space-x-3">
-              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] bg-slate-400" />
-              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] bg-slate-500" />
-              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] bg-slate-600" />
+              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] bg-slate-50/0 border-black/0" />
+              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] border-black/0 bg-[#65758b]/0" />
+              <div className="h-10 w-10 rounded-full border-2 border-[hsl(218_23%_23%)] border-black/0 bg-[#48566a]/0" />
             </div>
-            <p className="text-xs font-medium text-white/60 uppercase tracking-widest">Trusted by 500+ teams</p>
+            <p className="text-xs font-medium text-white/60 uppercase tracking-widest"></p>
           </div>
         </div>
       </div>

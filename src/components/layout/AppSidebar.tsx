@@ -57,7 +57,7 @@ export function AppSidebar() {
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary">
                 <CircleDollarSign className="h-4 w-4 text-primary-foreground" strokeWidth={2.25} />
               </div>
-              {!collapsed && <span className="font-display font-semibold text-base tracking-tight">ExpenseDesk</span>}
+              {!collapsed && <span className="font-display font-semibold text-base tracking-tight">PetixOps</span>}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

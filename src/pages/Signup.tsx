@@ -47,7 +47,7 @@ export default function Signup() {
             <p className="mt-2 text-sm text-muted-foreground">
               {success
                 ? `We've sent a confirmation link to ${email}. Verify it to continue.`
-                : 'Join ExpenseDesk to manage your team expenses.'}
+                : 'Join PetixOps to manage your team expenses.'}
             </p>
           </div>
 
